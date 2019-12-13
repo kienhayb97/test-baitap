@@ -13,16 +13,20 @@ public class Clazz {
     private String name;
 
     @OneToMany(targetEntity = Student.class)
-    @JoinColumn(name = "student_id")
     private Set<Student> student;
 
+    @ManyToMany
+    private Set<Lecturers> lecturers;
+
     public Clazz() {
+
     }
 
-    public Clazz(Long id, String name, Set<Student> student) {
+    public Clazz(Long id, String name, Set<Student> student, Set<Lecturers> lecturers) {
         this.id = id;
         this.name = name;
         this.student = student;
+        this.lecturers = lecturers;
     }
 
     public Long getId() {
