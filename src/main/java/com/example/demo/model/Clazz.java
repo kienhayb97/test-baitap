@@ -12,7 +12,8 @@ public class Clazz {
     private Long id;
     private String name;
 
-    @OneToMany(targetEntity = Student.class)
+
+    @OneToMany(targetEntity = Student.class, fetch = FetchType.EAGER)
     private Set<Student> student;
 
     @ManyToMany
