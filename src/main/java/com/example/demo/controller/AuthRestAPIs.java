@@ -66,7 +66,6 @@ public class AuthRestAPIs {
 
     return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
   }
-
     @PostMapping(value = "/signup")
     public ResponseEntity registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
         System.out.println("ok");
@@ -91,9 +90,6 @@ public class AuthRestAPIs {
         userRepository.save(user);
         return new ResponseEntity(HttpStatus.OK);
     }
-
-
-
     @GetMapping("/view/user/{name}")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Optional<User>> userDetails(@PathVariable("name") String userName) {
